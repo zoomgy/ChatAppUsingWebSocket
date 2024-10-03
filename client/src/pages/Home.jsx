@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import generateUniqueId from 'generate-unique-id';
 import { useNavigate } from 'react-router-dom';
-const webSocketConnection = new WebSocket("ws://localhost:8080");
+const webSocketConnection = new WebSocket("https://chatappusingwebsocketbackend.onrender.com");
 
 function Home() {
     const [messages,setMessages] = useState([]);
