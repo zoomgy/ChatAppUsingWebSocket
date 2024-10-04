@@ -71,27 +71,27 @@ function Home() {
         
         
         
-        <div className='w-11/12 h-5/6 rounded-lg bg-slate-600 p-10 flex flex-col gap-3 justify-center items-center'>
+        <div className='p-1 h-full w-full sm:w-11/12 rounded-lg bg-slate-600 sm:p-5 flex flex-col gap-3 justify-center items-center'>
             <div className='bg-slate-800 w-full h-5/6 rounded-lg flex justify-center flex-col items-center'>
                 {messages.length > 0 ? 
 
 
-                        <div className='text-xs md:text-xl gap-1 p-1 md:p-10 w-full h-full flex flex-col md:gap-2 overflow-y-auto'>
+                        <div className='text-xs md:text-xl gap-1 p-1 md:p-5 w-full h-full flex flex-col md:gap-2 overflow-y-auto'>
                             {messages.map((singlemessage)=>(
                                 <div className={singlemessage.username === username ? `w-full flex justify-end` : `w-full flex justify-start`} key={generateUniqueId()}>
-                                    <div className={'p-1 w-full md:w-1/2 rounded-lg bg-slate-500 md:p-3 flex flex-col'}>
-                                        <span className='rounded-lg text-slate-900'>{singlemessage.username}</span>
+                                    <div className={'p-1 w-full md:w-2/3 rounded-lg bg-slate-500 md:p-3 flex flex-col'}>
+                                        <span className='rounded-lg text-slate-900'>{singlemessage.username === username ? "ME" : `${singlemessage.username}`}</span>
                                         <span className='p-1 md:p-2 rounded-lg bg-slate-800'>{singlemessage.content}</span>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     
-                : <p className='text-3xl text-slate-400'>No Messages Yet</p>}
+                : <p className='text-xs sm:text-3xl text-slate-400'>No Messages Yet</p>}
             </div>
             <div className='bg-slate-800 w-full h-1/6 rounded-lg'>
                 <form onSubmit={handleSendingMessage} className='p-1 w-full h-full sm:p-3 flex gap-3 justify-center items-center'>
-                    <input onChange={(event)=>setSendingMessage(event.target.value)} value={sendingMessage} className='p-1 text-xs sm:p-3 bg-slate-500 w-1/2 h-1/2 sm:text-xl rounded-lg focus:outline-none' type="text" />
+                    <input onChange={(event)=>setSendingMessage(event.target.value)} value={sendingMessage} className='w-4/5 p-1 text-xs sm:p-3 bg-slate-500 sm:w-1/2 h-1/2 sm:text-xl rounded-lg focus:outline-none' type="textarea" />
                     <button className='text-xs sm:text-xl bg-blue-600 w-1/6 h-1/2 p-3 rounded-lg flex justify-center items-center hover:opacity-70 hover:text-slate-50'>Send</button>
                 </form>
             </div>
@@ -102,7 +102,7 @@ function Home() {
         
         
         
-        : <div className='max-w-3xl flex flex-col justify-center items-center bg-slate-700 p-10 rounded-lg transition-all'>
+        : <div className='max-w-3xl flex flex-col justify-center items-center bg-slate-700 p-5 rounded-lg transition-all'>
             <form className='flex flex-col gap-3'>
                 <input value={data} onChange={(event)=>(setData(event.target.value))} placeholder='RoomName' type="text" className='transition-all hover:p-5 text-center  bg-slate-600 p-3 rounded-lg text-2xl text-slate-300 focus:outline-none' />
                 <button onClick={handleSubmit}  id="addtoroom" className='transition-all p-3 text-2xl bg-slate-600 rounded-lg hover:bg-slate-900  hover:text-slate-200 hover:p-5'>Join an existing room</button>
