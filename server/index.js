@@ -1,11 +1,7 @@
 import { WebSocketServer } from 'ws';
 import ChatController from './ChatController.js';
-
-
-// fGC0iNp8tNS4t7mU
-// mongodb+srv://ayushsinghcs21:fGC0iNp8tNS4t7mU@cluster0.xwjpi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-
 const wss = new WebSocketServer({ port: process.env.PORT || 8080 });
+
 const chatBot = new ChatController();
 
 wss.on('connection', function connection(ws) {

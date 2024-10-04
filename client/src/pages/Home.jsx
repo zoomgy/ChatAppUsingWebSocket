@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import generateUniqueId from 'generate-unique-id';
-import { useNavigate } from 'react-router-dom';
+
 const webSocketConnection = new WebSocket("https://chatappusingwebsocketbackend.onrender.com");
 
 function Home() {
@@ -76,12 +76,12 @@ function Home() {
                 {messages.length > 0 ? 
 
 
-                        <div className='p-10 w-full h-full flex flex-col gap-2 overflow-y-auto'>
+                        <div className='text-xs md:text-xl gap-1 p-1 md:p-10 w-full h-full flex flex-col md:gap-2 overflow-y-auto'>
                             {messages.map((singlemessage)=>(
                                 <div className={singlemessage.username === username ? `w-full flex justify-end` : `w-full flex justify-start`} key={generateUniqueId()}>
-                                    <div className={'w-1/2 rounded-lg bg-slate-500 p-3 flex flex-col'}>
+                                    <div className={'p-1 w-full md:w-1/2 rounded-lg bg-slate-500 md:p-3 flex flex-col'}>
                                         <span className='rounded-lg text-slate-900'>{singlemessage.username}</span>
-                                        <span className='p-2 rounded-lg bg-slate-800'>{singlemessage.content}</span>
+                                        <span className='p-1 md:p-2 rounded-lg bg-slate-800'>{singlemessage.content}</span>
                                     </div>
                                 </div>
                             ))}
@@ -90,9 +90,9 @@ function Home() {
                 : <p className='text-3xl text-slate-400'>No Messages Yet</p>}
             </div>
             <div className='bg-slate-800 w-full h-1/6 rounded-lg'>
-                <form onSubmit={handleSendingMessage} className='w-full h-full p-3 flex gap-3 justify-center items-center'>
-                    <input onChange={(event)=>setSendingMessage(event.target.value)} value={sendingMessage} className='p-3 bg-slate-500 w-1/2 h-1/2 text-xl rounded-lg focus:outline-none' type="text" />
-                    <button className='text-xl bg-blue-600 w-1/6 h-1/2 p-3 rounded-lg flex justify-center items-center hover:opacity-70 hover:text-slate-50'>Send</button>
+                <form onSubmit={handleSendingMessage} className='p-1 w-full h-full sm:p-3 flex gap-3 justify-center items-center'>
+                    <input onChange={(event)=>setSendingMessage(event.target.value)} value={sendingMessage} className='p-1 text-xs sm:p-3 bg-slate-500 w-1/2 h-1/2 sm:text-xl rounded-lg focus:outline-none' type="text" />
+                    <button className='text-xs sm:text-xl bg-blue-600 w-1/6 h-1/2 p-3 rounded-lg flex justify-center items-center hover:opacity-70 hover:text-slate-50'>Send</button>
                 </form>
             </div>
         </div>
