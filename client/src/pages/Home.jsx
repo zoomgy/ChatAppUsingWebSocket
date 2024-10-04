@@ -89,9 +89,9 @@ function Home() {
                     
                 : <p className='text-xs sm:text-3xl text-slate-400'>No Messages Yet</p>}
             </div>
-            <div className='bg-slate-800 w-full h-1/6 rounded-lg'>
+            <div className='bg-slate-800 w-full sm:h-1/6 rounded-lg'>
                 <form onSubmit={handleSendingMessage} className='p-1 w-full h-full sm:p-3 flex gap-3 justify-center items-center'>
-                    <input onChange={(event)=>setSendingMessage(event.target.value)} value={sendingMessage} className='w-4/5 p-1 text-xs sm:p-3 bg-slate-500 sm:w-1/2 h-1/2 sm:text-xl rounded-lg focus:outline-none' type="textarea" />
+                    <input onChange={(event)=>setSendingMessage(event.target.value)} value={sendingMessage} className='w-4/5 p-1 text-xs sm:p-3 bg-slate-500 sm:w-1/2 sm:h-1/2 sm:text-xl rounded-lg focus:outline-none' type="textarea" />
                     <button className='text-xs sm:text-xl bg-blue-600 w-1/6 h-1/2 p-3 rounded-lg flex justify-center items-center hover:opacity-70 hover:text-slate-50'>Send</button>
                 </form>
             </div>
