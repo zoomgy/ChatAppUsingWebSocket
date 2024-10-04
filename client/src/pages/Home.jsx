@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import generateUniqueId from 'generate-unique-id';
 
-const webSocketConnection = new WebSocket("https://chatappusingwebsocketbackend.onrender.com");
+const webSocketConnection = new WebSocket("https://chatappusingwebsocket.onrender.com");
 
 function Home() {
     const [messages,setMessages] = useState([]);
